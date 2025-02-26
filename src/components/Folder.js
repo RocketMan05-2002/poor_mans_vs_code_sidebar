@@ -1,38 +1,71 @@
-import { useState } from "react";
-import { FaFolderOpen } from "react-icons/fa";
+import React, { useState } from 'react'
 
-function Folder({ explorer }) {
-  const [expand, setExpand] = useState(false);
-  const [showInput, setShowInput] = useState({
+const Folder = ({ handleInsertNode,  explorer }) => {
+
+  const[expand,setExpand] = useState(false);
+  const[showinput,setShowInput] = useState({
     visible: false,
-    isFolder: null,
-  });
+    isFolder: null
+  })
 
-  if (explorer.isFolder) {
-    return (
-      <div style={{ marginTop: "5px" }}>
-        <div className="folder" onClick={() => setExpand(!expand)}>
-          <span>
-            <FaFolderOpen />
-            {explorer.name}
-          </span>
-          <div>
-            <button>Folder +</button>
-            <button>File +</button>
-          </div>
-        </div>
-        <div
-          style={{ display: expand ? "block" : "none", paddingLeft: "25px" }}
-        >
-          {explorer.items.map((exp) => {
-            return <Folder explorer={exp} key={exp.id} />;
-          })}
+  const handleNewFolder = (e,isFolder) =>{
+    e.stopPropagation();
+    setShowInput({
+      visible:true,
+      isFolder
+    });
+    setExpand(true);
+  }
+
+  const onAddFolder = (e) =>{
+    if(e.keyCode === 13 && e.target.value){
+      // add logic
+      handleInsertNode(explorer.id, e.target.value, showinput.isFolder)
+      setShowInput({...showinput, visible: false})
+    }
+  }
+
+  if(explorer.isFolder){
+  return (
+    <div>
+      <div className='folder' onClick={()=>setExpand(!expand)}>
+        <span>📂 {explorer.name}</span>
+        <div>
+          <button onClick={(e)=>handleNewFolder(e,true)} >Folder+ </button>
+          <button onClick={(e)=>handleNewFolder(e,false)} >File+</button>
         </div>
       </div>
-    );
-  } else {
-    return <span className="file">📄{explorer.name}</span>;
+      <div style={{ display: expand?"block":"none" , paddingLeft:"25px"}}>
+        {
+          showinput.visible && (
+            <div className='inputContainer'> 
+              <span>{showinput.isFolder ? "📂": "📄"}</span>
+              <input 
+              type='text'
+              placeholder='enter name..'
+              className='inputContainer_input'
+              autoFocus
+              onBlur={()=>setShowInput({...showinput,visible: false})}
+              onKeyDown={ onAddFolder }
+              />
+            </div>
+          )
+        }
+        {explorer.items.map((exp)=>{
+          return (
+            <Folder
+            handleInsertNode={handleInsertNode}
+            explorer={exp} 
+            key={exp.id} 
+            />
+          )
+        })}
+      </div>
+    </div>
+  )}
+  else{
+    return <span className='file'>📄 {explorer.name}</span>
   }
 }
 
-export default Folder;
+export default Folder

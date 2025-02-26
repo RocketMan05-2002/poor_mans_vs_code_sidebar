@@ -1,28 +1,43 @@
 .folder {
-    margin-top: 6px;
-    background-color: rgb(233, 233, 233);
-    display: flex;
-    justify-content: space-between;
-    padding: 3px;
-    width: 300px;
-    cursor: pointer;
-  }
-  .folder > span {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 5px 2px 0;
-  }
-  .file {
-    margin-top: 5px;
-    padding-left: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  .folder > div > button {
-    font-size: 15px;
-    background-color: white;
-    border: 1px solid rgb(63, 75, 44);
-    margin-right: 10px;
-  }
-  
+  margin-top: 6px;
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  cursor: pointer;
+}
+.folder > span {
+  margin: 0 5px 2px 0;
+}
+.file {
+  margin-top: 6px;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.folder > div > button {
+  font-size: 15px;
+  background-color: rgb(182, 182, 182);
+  border: 1px solid black;
+  margin-right: 10px;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.inputContainer > span {
+  margin-top: 5px;
+}
+.inputContainer > input {
+  margin: 6px 0 0 0;
+  padding: 5px;
+  display: flex;
+  border: 1px solid lightgrey;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  outline: none;
+}
