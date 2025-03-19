@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./styles.css";
-import explorer from './data/folderData'
+import explorer from "./data/folderData";
 import Folder from "./components/Folder";
 import useTraverseTree from "./hooks/use-traverse-tree";
 
 export default function App() {
-
-  const[explorerData,setExplorerData] = useState(explorer);
+  const [explorerData, setExplorerData] = useState(explorer);
 
   const { insertNode } = useTraverseTree();
 
