@@ -1,42 +1,42 @@
-.folder {
-  margin-top: 6px;
-  background-color: rgb(233, 233, 233);
-  display: flex;
-  padding: 6px 10px;
-  justify-content: space-between;
-  width: 300px;
-  cursor: pointer;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.folder > span {
-  margin: 0 5px 2px 0;
+.wrapper{
+    width: 20%;
 }
-.file {
-  margin-top: 6px;
-  padding-left: 5px;
-  display: flex;
-  flex-direction: column;
+.folder{
+    background-color: #d9ceb7;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
 }
-.folder > div > button {
-  font-size: 15px;
-  background-color: rgb(182, 182, 182);
-  border: 1px solid black;
-  margin-right: 10px;
+.folder button{
+    padding: 5px 8px;
+    background-color: rgb(202, 202, 141);
+    margin-right: 10px;
 }
-.inputContainer {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.file{
+    width: 400px;
+    background-color: #e8e5e5;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(206, 206, 173);
+    border: 1px solid black;
 }
-.inputContainer > span {
-  margin-top: 5px;
-}
-.inputContainer > input {
-  margin: 6px 0 0 0;
-  padding: 5px;
-  display: flex;
-  border: 1px solid lightgrey;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  outline: none;
+.input-container{
+    margin: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    input{
+        padding: 5px;
+    }
 }
